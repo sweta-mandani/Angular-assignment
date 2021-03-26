@@ -1,3 +1,5 @@
+
+<router-outlet></router-outlet>
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
   <a class="navbar-brand" href="index.html">Start Bootstrap</a>
   <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
@@ -71,28 +73,27 @@
                   </div>
                   <div class="card-body">
                       <div class="table-responsive">
-                          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" *ngfor='let item of  dataList'>
+                          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
                               <thead>
                                 
                                   <tr>
-                                      <th>Name</th>
-                                      <th>Position</th>
-                                      <th>Office</th>
-                                      <th>Age</th>
-                                      <th>Start date</th>
-                                      <th>Salary</th>
+                                      <th>id</th>
+                                      <th>email</th>
+                                      <th>name</th>
+                                      <th>totalEmployee</th>
+                                      <th>address</th>
+                                      <th>isCompanyActive</th>
+                                      <th>totalBranch</th>
+                                      <th>barnchId</th>
+                                      <th>branchName</th>
+                                      <th>address</th>
+
+
+                                      
+
                                   </tr>
                               </thead>
-                              <tfoot>
-                                  <tr>
-                                      <th>Name</th>
-                                      <th>Position</th>
-                                      <th>Office</th>
-                                      <th>Age</th>
-                                      <th>Start date</th>
-                                      <th>Salary</th>
-                                  </tr>
-                              </tfoot>
+                             
                               <tbody>
                                   
                                   
@@ -102,13 +103,17 @@
                                   
                                   
                                   
-                                  <tr>
-                                      <td>{{item.id}}</td>
-                                      <td>Customer Support</td>
-                                      <td>New York</td>
-                                      <td>27</td>
-                                      <td>2011/01/25</td>
-                                      <td>$112,000</td>
+                                  <tr *ngFor="let users of allUser">
+                                      <td>{{users.id}}</td>
+                                      <td>{{users.email}}</td>
+                                      <td>{{users.name}}</td>
+                                      <td>{{users.totalEmployee}}</td>
+                                      <td>{{users.address}}</td>
+                                      <td>{{users.isCompanyActive}}</td>
+                                      <td>{{users.totalBranch}}</td>
+                                      <td>{{users.barnchId}}</td>
+                                      <td>{{users.branchName}}</td>
+                                      <td>{{users.address}}</td>
                                   </tr>
                               </tbody>
                           </table>
@@ -131,6 +136,4 @@
       </footer>
   </div>
 </div>
-<div>
-    <router-outlet></router-outlet>
-  </div>
+
