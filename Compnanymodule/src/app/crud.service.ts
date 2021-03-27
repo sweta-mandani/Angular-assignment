@@ -7,8 +7,12 @@ import { HttpClient } from '@angular/common/http';
 export class CrudService {
 
   constructor(private _http:HttpClient) { }
+  CreateUser(user: any)
+  {
+    return this._http.post("http://localhost:3000/Users",user);
+  }
   getallUser()
   {
-    return this._http.get("http://localhost:5555/Company_modules");
+    return this._http.get("http://localhost:3000/Users");
   }
 }

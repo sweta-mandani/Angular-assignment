@@ -24,6 +24,13 @@ export class AppComponent  {
       this.allUser = response;
   })
 }
+  addUser(formObj: any){
+    console.log(formObj)
+    this.crudService.CreateUser(formObj).subscribe((response)=>{
+   
+       console.log("User has benn submiteed")
+   })
+}
 
   
   
