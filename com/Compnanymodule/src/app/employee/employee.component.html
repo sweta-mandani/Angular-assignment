@@ -1,4 +1,5 @@
-<router-outlet></router-outlet>
+
+
 
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <a class="navbar-brand" href="index.html">Start Bootstrap</a>
@@ -38,7 +39,7 @@
 
 
 
-                    <a class="nav-link" href="tables.html">
+                    <a class="nav-link" routerLink="/">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                         Tables
                     </a>
@@ -54,62 +55,10 @@
         <main>
             <div class="container-fluid">
                 <h1 class="mt-4">Tables</h1>
-                <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Tables</li>
-                </ol>
-                <div class="card mb-4">
-                    <div class="card-body">
-                        DataTables is a third party plugin that is used to generate the demo table below. For more
-                        information about DataTables, please visit the
-                        <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-                        .
-                    </div>
-                </div>
-                <form action="/db.json">
-
-                    <div class="form-group">
-                        <label for="email">name</label>
-                        <input type="email" class="form-control" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">email</label>
-                        <input type="email" class="form-control" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">totalEmployee</label>
-                        <input type="email" class="form-control" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">address</label>
-                        <input type="email" class="form-control" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">isCompanyActive</label>
-                        <input type="email" class="form-control" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">totalBranch</label>
-                        <input type="email" class="form-control" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">barnchId</label>
-                        <input type="email" class="form-control" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">branchName</label>
-                        <input type="email" class="form-control" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">address</label>
-                        <input type="password" class="form-control" id="pwd">
-                    </div>
-
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
+               
 
 
-
+                <a routerLink="/home">+Add Employee</a>
 
                 <div class="card mb-4">
                     <div class="card-header">
@@ -122,7 +71,7 @@
                                 <thead>
 
                                     <tr>
-                                        <th>id</th>
+                                      
                                         <th>email</th>
                                         <th>name</th>
                                         <th>totalEmployee</th>
@@ -132,24 +81,13 @@
                                         <th>barnchId</th>
                                         <th>branchName</th>
                                         <th>address</th>
-
-
-
-
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
-
                                 <tbody>
-
-
-
-
-
-
-
-
-                                    <tr *ngFor="let users of allUser">
-                                        <td>{{users.id}}</td>
+                                        <tr *ngFor="let users of allUser">
+                                        
                                         <td>{{users.email}}</td>
                                         <td>{{users.name}}</td>
                                         <td>{{users.totalEmployee}}</td>
@@ -161,7 +99,13 @@
                                             <td>{{branch.branchName}}</td>
                                             <td>{{branch.address}}</td>
                                         </ng-container>
-                                    </tr>
+                                       
+                                        <td><button (click)="DeleteUser(users)" class="btn btn-danger">Delete</button></td>
+                                       <td> <button type="button" class="btn btn-warning btn-sm" [routerLink]="[ '/edit/${users.id}']">Edit</button>
+                                        </td>
+                                       
+                                       
+                                       
                                 </tbody>
                             </table>
                         </div>
