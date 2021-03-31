@@ -66,50 +66,49 @@
                         
                         <div class="card-body">
                           
-                                    <form id="formNewEmployee" name="formNewEmployee" #ngForm="ngForm" (ngSubmit)="EditUser(ngForm.value)">
+                                 
     
-                                           
-                                            <div class="form-group">
-                                                <label for="name">name</label>
-                                                <input type="name" class="form-control" name="name" [(ngModel)]="data.name" >
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="email">email</label>
-                                                <input type="email" class="form-control" name="email" [(ngModel)]="data.email">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="totalEmployee">totalEmployee</label>
-                                                <input type="totalEmployee" class="form-control" name="totalEmployee" [(ngModel)]="data.totalEmployee" >
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="address">address</label>
-                                                <input type="address" class="form-control" name="address" [(ngModel)]="data.address" >
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="isCompanyActive">isCompanyActive</label>
-                                                <input type="isCompanyActive" class="form-control" name="isCompanyActive"[(ngModel)]="data.isCompanyActive" >
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="totalBranch">totalBranch</label>
-                                                <input type="totalBranch" class="form-control" name="totalBranch" [(ngModel)]="data.totalBranch">
-                                            </div>
-                                      
-                                            
-                                            <div class="form-group">
-                                                <label for="barnchId">barnchId</label>
-                                                <input type="barnchId" class="form-control" name="branchId" [(ngModel)]="data.branchId">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="branchName">branchName</label>
-                                                <input type="branchName" class="form-control" name="branchName" [(ngModel)]="data.branchName" >
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="address">address</label>
-                                                <input type="address" class="form-control" name="address" [(ngModel)]="data.address" >
-                                            </div>
-                                        
+                            <div class="form-group">
+                                <label for="name">name</label>
+                                <input type="name" class="form-control" id="name" [(ngModel)]="data.name" >
+                            </div>
+                            <div class="form-group">
+                                <label for="email">email</label>
+                                <input type="email" class="form-control" id="email" [(ngModel)]="data.email">
+                            </div>
+                            <div class="form-group">
+                                <label for="totalEmployee">totalEmployee</label>
+                                <input type="totalEmployee" class="form-control" id="totalEmployee" [(ngModel)]="data.totalEmployee" >
+                            </div>
+                            <div class="form-group">
+                                <label for="address">address</label>
+                                <input type="address" class="form-control" id="address" [(ngModel)]="data.address" >
+                            </div>
+                            <div class="form-group">
+                                <label for="isCompanyActive">isCompanyActive</label>
+                                <input type="isCompanyActive" class="form-control" id="isCompanyActive"[(ngModel)]="data.isCompanyActive" >
+                            </div>
+                            <div class="form-group">
+                                <label for="totalBranch">totalBranch</label>
+                                <input type="totalBranch" class="form-control" id="totalBranch" [(ngModel)]="data.totalBranch">
+                            </div>
+                      
+                            
+                            <div class="form-group">
+                                <label for="barnchId">barnchId</label>
+                                <input type="barnchId" class="form-control" id="branchId" [(ngModel)]="data.branchId">
+                            </div>
+                            <div class="form-group">
+                                <label for="branchName">branchName</label>
+                                <input type="branchName" class="form-control" id="branchName" [(ngModel)]="data.branchName" >
+                            </div>
+                            <div class="form-group">
+                                <label for="address">address</label>
+                                <input type="address" class="form-control" id="address" [(ngModel)]="data.address" >
+                            </div>
                                             <button type="submit" class="btn btn-success" (click)="update()">Update</button>
-                                        </form>
+                                            <button type="submit" class="btn btn-warning ml-1" [routerLink]="[ '/list']">Cancel</button>
+                                      
                                         
                                
                             

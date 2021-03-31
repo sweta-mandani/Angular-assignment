@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, ObservedValueOf, throwError } from 'rxjs';
-import { Employee } from './app.module';
+import { Observable, throwError } from 'rxjs';
+import { Employee} from './app.module';
+import { retry, catchError } from 'rxjs/operators';
+
 
 
 @Injectable({
@@ -37,32 +39,61 @@ export class CrudService {
   };
 
 
-  id: number | undefined;
+  id:number;
   private headers=new Headers({'Content-Type':'application/json'});
-  CreateUser(user: any)
-  {
-    return this._http.post("http://localhost:3000/Users",user);
+  createItem(item: Employee): Observable<Employee[]> {
+    return this._http
+      .post<Employee[]>(this.base_path, JSON.stringify(item), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
   }
-  getallUser()
-  {
-    return this._http.get("http://localhost:3000/Users");
+
+  
+ 
+  // Get students data
+  getList(): Observable<Employee[]> {
+    return this._http
+      .get<Employee[]>(this.base_path)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
   }
-  deleteUser(user: { id: Int16Array; })
-  {
-    
-    return this._http.delete("http://localhost:3000/Users/"+user.id);
-    
+
+  
+ 
+
+  // Delete item by id
+  deleteItem(id: number) {
+    return this._http
+      .delete<Employee[]>(this.base_path + '/' + id, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
   }
-  updateItem(id: string, item: any): Observable<Employee> {
+
+      // Update item by id
+  updateItem(id:number, item: Employee): Observable<Employee[]> {
   
     return this._http
-      .put<Employee>(this.base_path + '/' + id, JSON.stringify(item), this.httpOptions)
+      .put<Employee[]>(this.base_path + '/' + id, JSON.stringify(item), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
       
-      
-}
+      }
+// Get single employee data by ID
 getItem(id:number): Observable<Employee> {
   return this._http
     .get<Employee>(this.base_path + '/' + id)
+    .pipe(
+      retry(2),
+      catchError(this.handleError)
+    )
    
 }
 }

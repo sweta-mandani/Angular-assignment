@@ -29,7 +29,8 @@ import { EditComponent } from './edit/edit.component';
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path:"",component:EmployeeComponent},
+    { path: '', pathMatch: 'full', redirectTo: 'list' },
+    {path:'list',component:EmployeeComponent},
   
     {path:"home",component:HomeComponent},
     
@@ -43,17 +44,22 @@ import { EditComponent } from './edit/edit.component';
 })
 export class AppModule { }
 
-export class Employee {  
-    id?: number;  
-    email?:string;
-    name?: string;  
-    totalEmployee?: number;  
-    address?:string;
-    employee_age?: number; 
-    isCompanyActive?:boolean; 
-    totalBranch?:number;
-    branchId?:number;
-    branchName?:string;
+export class Employee{
+ 
+    id: number;  
+    email:string;
+    name: string;  
+    totalEmployee: number;  
+    address:string;
+    totalBranch:number;
+    isCompanyActive:boolean; 
+    
+
+   
+    branchId:number;
+    branchName:string;
+    Address:string;
+}
     
     
     
@@ -62,4 +68,4 @@ export class Employee {
         
        
         
-}  
+ 

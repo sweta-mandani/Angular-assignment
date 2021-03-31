@@ -11,8 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditComponent implements OnInit {
   submitted=false;
-  id:any;
-  public data:Employee;
+  id:number;
+  data:Employee;
     
   
 
@@ -25,6 +25,7 @@ export class EditComponent implements OnInit {
          
   
   ngOnInit() {
+  
     this.id = this.activatedRoute.snapshot.params["id"];
     //get item details using id
     this.crudService. getItem(this.id).subscribe(response => {
@@ -36,7 +37,7 @@ export class EditComponent implements OnInit {
   update() {
     //Update item by taking id and updated data object
     this.crudService.updateItem(this.id, this.data).subscribe(response => {
-      this.route.navigate(['employee']);
+      this.route.navigate(['list']);
     })
   }
 

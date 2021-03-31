@@ -58,7 +58,7 @@
                
 
 
-                <a routerLink="/home">+Add Employee</a>
+               
 
                 <div class="card mb-4">
                     <div class="card-header">
@@ -71,7 +71,7 @@
                                 <thead>
 
                                     <tr>
-                                      
+                                        <td>id</td>
                                         <th>email</th>
                                         <th>name</th>
                                         <th>totalEmployee</th>
@@ -87,7 +87,7 @@
                                 </thead>
                                 <tbody>
                                         <tr *ngFor="let users of allUser">
-                                        
+                                            <td>{{users.id}}</td>
                                         <td>{{users.email}}</td>
                                         <td>{{users.name}}</td>
                                         <td>{{users.totalEmployee}}</td>
@@ -100,14 +100,16 @@
                                             <td>{{branch.address}}</td>
                                         </ng-container>
                                        
-                                        <td><button (click)="DeleteUser(users)" class="btn btn-danger">Delete</button></td>
-                                       <td> <button type="button" class="btn btn-warning btn-sm" [routerLink]="[ '/edit/${users.id}']">Edit</button>
+                                        <td style="display: flex">
+                                            <button type="button" class="btn btn-warning btn-sm" [routerLink]="[ '/edit/${users.id}']">Edit</button>
+                                            <button type="button" class="btn btn-danger btn-sm ml-1" (click)="delete(users)">Delete</button>
                                         </td>
                                        
                                        
                                        
                                 </tbody>
                             </table>
+                            <button type="button" class="btn btn-success" [routerLink]="[ '/home']">Add Student</button>
                         </div>
                     </div>
                 </div>

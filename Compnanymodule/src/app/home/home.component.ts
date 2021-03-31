@@ -2,30 +2,37 @@ import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../crud.service';
 import { TouchSequence } from 'selenium-webdriver';
 
+
+import { ActivatedRoute, Router } from '@angular/router';
+import { Employee} from '../app.module';
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  alluser: any;
+  data: Employee;
+
+
+
   cofirmationString:string="new Employee has been add";
   isAdded:boolean=false;
 
-  constructor(public crudService: CrudService) { }
-  addUser(formObj: any){
-    console.log(formObj)
-    this.crudService.CreateUser(formObj).subscribe((response)=>{
-      this.isAdded=true;
-      this.getLatestUser();
-   
-       console.log("User has benn submiteed")
-   })
+  constructor(public crudService: CrudService,public router: Router) {
+    this.data = new Employee();
+    
   }
-  getLatestUser(){
-    this.crudService.getallUser().subscribe((response)=>
-    this.alluser=response
-    )}
+  
+   
+  submitForm() {
+    this.crudService.createItem(this.data).subscribe((response) => {
+      this.router.navigate(['list']);
+    });
+  }
+  
+  
 
   ngOnInit(): void {
   }
